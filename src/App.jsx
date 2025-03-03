@@ -1,15 +1,21 @@
+import Footer from "./component/footer"
 import Navbar from "./component/nav"
+// import Navbars from "./component/Navbar"
+import RouteApp from "./route/routing"
 
 
 function App() {
 
   return (
     <>
+    {/* <Navbars/> */}
     <Navbar/>
-     <h1 class="text-3xl font-bold text-red-500 underline">
-    Hello world!
-  </h1>
-    <div className="work">Hello World</div>
+    {/* <HomePage/> */}
+    {/* <AboutPage/> */}
+    {/* <ProjectsPage/> */}
+    {/* <ContactPage/> */}
+    <RouteApp/>
+    <Footer/>
     </>
   )
 }

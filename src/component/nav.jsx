@@ -1,71 +1,104 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
+import { FaGithub, FaTwitter, FaInstagram, FaLinkedin } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
+    const menuRef = useRef(null);
+
+    useEffect(() => {
+        const handleClickOutside = (event) => {
+            if (menuRef.current &&
+                !menuRef.current.contains(event.target) &&
+                !event.target.closest('button[aria-label="menu"]')) {
+                setIsOpen(false);
+            }
+        };
+
+        document.addEventListener('mousedown', handleClickOutside);
+        return () => {
+            document.removeEventListener('mousedown', handleClickOutside);
+        };
+    }, []);
+
+    const closeMenu = () => setIsOpen(false);
 
     return (
-        <nav className="bg-blue-800 p-4">
+        <nav className="bg-white p-4 relative">
             <div className="container mx-auto flex justify-between items-center">
-                {/* Brand Name */}
-                <a href="/" className="text-white text-lg font-semibold">Asov-Portfolio
-                </a>
+                <Link to="/" className="text-blue-600 text-2xl hover:text-gray-400 font-semibold">
+                    Asov-Portfolio
+                </Link>
 
-                {/* Hamburger Menu for mobile */}
-                <button onClick={() => setIsOpen(!isOpen)}
-                    className="text-white focus:outline-none md:hidden">
-                    {/* Hamburger Icon and Close Icon */}
+                <button
+                    onClick={() => setIsOpen(!isOpen)}
+                    className="text-blue-600 focus:outline-none md:hidden z-50"
+                    aria-label="menu"
+                >
                     {isOpen ? (
-                        <svg
-                            className="w-6 h-6"
-                            fill="none"
-                            stroke="currentColor"
-                            viewBox="0 0 24 24"
-                            xmlns="http://www.w3.org/2000/svg">
-                        
-                            <path
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                                strokeWidth="2"
-                                d="M6 18L18 6M6 6l12 12"
-                            />
+                        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
                         </svg>
                     ) : (
-                        <svg
-                            className="w-6 h-6"
-                            fill="none"
-                            stroke="currentColor"
-                            viewBox="0 0 24 24"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <path
-                                strokeLinecap="round"
-                                strokeLinejoin="round"
-                                strokeWidth="2"
-                                d="M4 6h16M4 12h16m-7 6h7"
-                            />
+                        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16m-7 6h7" />
                         </svg>
                     )}
                 </button>
 
-                {/* Navigation Links */}
+                {/* Updated Menu Section */}
                 <div
-                    className={`w-full md:flex md:items-center md:w-auto 
-                    md:space-x-4 absolute md:relative top-16 left-0 md:top-0 
-                    md:left-0 p-4 md:p-0 bg-green-600 md:bg-transparent 
-                    transition-all duration-500 ease-in-out transform ${isOpen ? 
-                    'translate-x-0' : 'translate-x-full'
-                        } md:translate-x-0`}>
-                    <a  href="#about"
-                        className="block py-2 px-4 text-white hover:text-gray-200
-                                   md:inline-block">About
-                    </a>
-                    <a  href="#project"
-                        className="block py-2 px-4 text-white hover:text-gray-200
-                                   md:inline-block">Project
-                    </a>
-                    <a  href="#contact"
-                        className="block py-2 px-4 text-white hover:text-gray-200 
-                                   md:inline-block">Contact
-                    </a>
+                    ref={menuRef}
+                    className={`md:flex md:items-center md:space-x-4 absolute md:static left-0 w-full md:w-auto
+                    bg-blue-500 md:bg-transparent transition-all duration-300 ease-in-out overflow-hidden
+                    ${isOpen ? 'max-h-[500px] opacity-100 top-14' : 'max-h-0 opacity-0 top-[-100%] md:max-h-full md:opacity-100 md:top-0'}
+                    z-40`}
+                >
+                    <div className="flex flex-col md:flex-row p-4 md:p-0">
+                        <div className="flex flex-col md:flex-row md:mr-4">
+                            <Link
+                                to="about"
+                                onClick={closeMenu}
+                                className="py-2 px-4 text-white md:text-blue-600 hover:text-gray-400 hover:underline text-xl"
+                            >
+                                About
+                            </Link>
+                            <Link
+                                to="projects"
+                                onClick={closeMenu}
+                                className="py-2 px-4 text-white md:text-blue-600 hover:text-gray-400 hover:underline text-xl"
+                            >
+                                Projects
+                            </Link>
+                            <Link
+                                to="contact"
+                                onClick={closeMenu}
+                                className="py-2 px-4 text-white md:text-blue-600 hover:text-gray-400 hover:underline text-xl"
+                            >
+                                Contact
+                            </Link>
+                        </div>
+
+                        <div className="flex justify-center md:justify-center md:items-center space-x-4 mt-4 md:mt-0 border-t md:border-t-0 pt-4 md:pt-0">
+                            {/* Social links with close handlers */}
+                            {[
+                                { icon: FaGithub, url: 'https://github.com/Otenevictor' },
+                                { icon: FaTwitter, url: 'https://x.com/BlessedVictoo' },
+                                { icon: FaInstagram, url: 'https://www.instagram.com/solomonotene36' },
+                                { icon: FaLinkedin, url: 'https://www.linkedin.com/in/victor-otene-26a4a023a/' }
+                            ].map((social, index) => (
+                                <Link
+                                    key={index}
+                                    to={social.url}
+                                    target="_blank"
+                                    onClick={closeMenu}
+                                    className="text-white md:text-blue-600 hover:text-gray-400"
+                                >
+                                    <social.icon className="text-2xl" />
+                                </Link>
+                            ))}
+                        </div>
+                    </div>
                 </div>
             </div>
         </nav>
