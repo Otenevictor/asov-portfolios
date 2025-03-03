@@ -14,6 +14,7 @@ import {
 import Cert1 from '../assets/cert1.png';
 import Cert2 from '../assets/cert2.png';
 import Cert3 from '../assets/cert3.png';
+import Prof2 from '../assets/prof2.jpg';
 
 const AboutPage = () => {
     const skills = [
@@ -110,7 +111,7 @@ const AboutPage = () => {
                         {/* Image with dynamic lighting */}
                         <div className="relative w-full h-full rounded-full overflow-hidden">
                             <img
-                                src="src/assets/prof2.jpg"
+                                src={Prof2}
                                 alt="Developer portrait"
                                 className="w-full h-full object-cover transform transition-all duration-300 group-hover:scale-110"
                             />

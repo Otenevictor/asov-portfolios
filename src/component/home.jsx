@@ -6,6 +6,8 @@ import TechStack from './TechStack';
 import Project1 from '../assets/project1.png';
 import Project2 from '../assets/project2.png';
 import Project11 from '../assets/project11.png';
+import Prof1 from '../assets/prof1.jpg';
+
 
 const HomePage = () => {
     const navigate = useNavigate();
@@ -80,7 +82,7 @@ const HomePage = () => {
                         <div className="relative w-full h-full rounded-full overflow-hidden">
                             <img
                 
-                                src="src/assets/prof1.jpg"
+                                src={Prof1}
                                 alt="Developer portrait"
                                 className="w-full h-full object-cover transform transition-all duration-300 group-hover:scale-110"
                             />
