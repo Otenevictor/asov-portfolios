@@ -26,7 +26,7 @@ const ProjectsPage = () => {
         {
             id: 2,
             title: "Sparkle fresh Concept",
-            description: "Liquid Soap making webPage",
+            description: " website for a Liquid Soap making company Sparkle fresh Concept ",
             image: Project2,
             techStack: ["Html", "Css", "Javascript"],
             githubUrl: "https://github.com/Otenevictor/sparkfresh",
@@ -43,8 +43,8 @@ const ProjectsPage = () => {
         },
         {
             id: 4,
-            title: " quizapp for programming language ",
-            description: "Creating quiz app for a programming language",
+            title: " quizapp coding ",
+            description: "Creating a quiz app for Javascript, Python, Rust etc. programming language. ",
             image: Project4,
             techStack: ["Html", "Css", "JAvascript"],
             githubUrl: "https://github.com/Otenevictor/asovdev-quiz-app",
@@ -53,7 +53,7 @@ const ProjectsPage = () => {
         {
             id: 5,
             title: "Muisc App",
-            description: "craatinng music app from freecode camp",
+            description: "Building music app from freecode camp Data-Structure & algorithm",
             image: Project5,
             techStack: ["Html", "Css", "Javascript"],
             githubUrl: "https://github.com/Otenevictor/music-app",
@@ -61,7 +61,7 @@ const ProjectsPage = () => {
         },
         {
             id: 6,
-            title: "Naija Support on flooding issues",
+            title: "Naija_Support",
             description: "This project was built to help reach out to Ngos currently on flood issues",
             image: Project6,
             techStack: ["Html", "Bootstrap css", "Javacript"],
@@ -71,7 +71,7 @@ const ProjectsPage = () => {
         {
             id: 7,
             title: "Asov Banking",
-            description: "Creating a banking landing page",
+            description: "Creatively building a banking landing page from frontend Mentors",
             image: Project7,
             techStack: ["Html", "Tailwind", "Javascript"],
             githubUrl: "https://github.com/Otenevictor/Asovbanking",
@@ -80,7 +80,7 @@ const ProjectsPage = () => {
         {
             id: 8,
             title: "Shopping Cart",
-            description: "A basic shopping cart app when applying for web3bridge",
+            description: "A basic shopping cart app when applying for web3bridge with a capon code",
             image: Project8,
             techStack: ["Html", "Css", "Javscript"],
             githubUrl: "https://github.com/Otenevictor/shopping-cart",
@@ -89,7 +89,7 @@ const ProjectsPage = () => {
         {
             id: 9,
             title: "Rock, Paper, Scissor",
-            description: "building a Rock paper Scissors game",
+            description: "Cratively building a Rock paper Scissors game with localstorage",
             image: Project9,
             techStack: ["Html", "Css", "Javscript"],
             githubUrl: "https://github.com/Otenevictor/asov-rock-paper-scissors",
@@ -97,7 +97,7 @@ const ProjectsPage = () => {
         },
         {
             id: 10,
-            title: "Data bio collection form",
+            title: " Save Data bio",
             description: "creatively build a Multi-step form for user data collection and final summary",
             image: Project3,
             techStack: ["Html", "Tailwind CSS", "Javascript"],

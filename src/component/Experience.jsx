@@ -9,7 +9,7 @@ const experiences = [
       },
     {
       title: 'Frontend Developer',
-      company: 'Tongston.',
+      company: 'Tongston',
       period: 'April 2023 - August 2023',
       description: 'Joint a team of 3 developers to build responsive web applications using React. bootstap and TypeScript. Improved site performance by 40%.'
     },
@@ -31,7 +31,7 @@ const experiences = [
             {experiences.map((exp, index) => (
               <div key={index} className="mb-8 ml-6 relative">
                 <div className="absolute -left-6 top-2 w-4 h-4 bg-blue-500 rounded-full"></div>
-                <h2 className="text-xl font-semibold">{exp.company}</h2>
+                <h2 className="text-xl font-semibold text-blue-500">{exp.company}</h2>
                 <h3 className="text-xl font-semibold">{exp.title}</h3>
                 <span className="text-gray-600">{exp.year}</span>
                 <p className="text-gray-700 mt-2">{exp.description}</p>
