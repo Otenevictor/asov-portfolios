@@ -89,7 +89,7 @@ const ContactPage = () => {
                         <div className='flex flex-col justify-center  p-2'>
                             <h3 className="text-xl font-bold mb-4">Social Media</h3>
                             <div className="flex justify-center md:flex md:justify-start md:p-0 p-2 space-x-4">
-                                <a href="mailto:solomonotene@gmail.com" target="blank" rel="noopener noreferrer">
+                                <a href="mailto:solomonotene36@gmail.com" target="blank" rel="noopener noreferrer">
                                     <FaEnvelope className='"text-black text-2xl  hover:text-gray-300"' />
                                 </a>
                                 <a href="https://github.com/Otenevictor" target="_blank"
