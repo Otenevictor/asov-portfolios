@@ -42,7 +42,7 @@ const HomePage = () => {
                },
     ];
     return (
-        <div className="min-h-screen">
+        <div className="min-h-screen pt-20">
             {/* Hero Section */}
             <section className="flex flex-col md:flex-row items-center min-h-screen p-4 md:p-8 bg-gray-50">
                 <div className="w-full md:w-1/2 mb-8 md:mb-0 pr-0 md:pr-8">

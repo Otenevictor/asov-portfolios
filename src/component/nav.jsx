@@ -4,7 +4,24 @@ import { Link } from 'react-router-dom';
 
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
+    const [scrolled, setScrolled] = useState(false);
     const menuRef = useRef(null);
+
+    // Handle scroll event to change navbar style
+    useEffect(() => {
+        const handleScroll = () => {
+            if (window.scrollY > 20) {
+                setScrolled(true);
+            } else {
+                setScrolled(false);
+            }
+        };
+
+        window.addEventListener('scroll', handleScroll);
+        return () => {
+            window.removeEventListener('scroll', handleScroll);
+        };
+    }, []);
 
     useEffect(() => {
         const handleClickOutside = (event) => {
@@ -24,15 +41,21 @@ const Navbar = () => {
     const closeMenu = () => setIsOpen(false);
 
     return (
-        <nav className="bg-white p-4 relative">
+        <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+            scrolled ? 'bg-blue-600 shadow-md' : 'bg-white'
+        } p-4`}>
             <div className="container mx-auto flex justify-between items-center">
-                <Link to="/" className="text-blue-600 text-2xl hover:text-gray-400 font-semibold">
-                    Asov-Portfolio
+                <Link to="/" className={`text-2xl font-semibold hover:text-gray-400 transition-colors ${
+                    scrolled ? 'text-white' : 'text-blue-600'
+                }`}>
+                    Asov-dev
                 </Link>
 
                 <button
                     onClick={() => setIsOpen(!isOpen)}
-                    className="text-blue-600 focus:outline-none md:hidden z-50"
+                    className={`focus:outline-none md:hidden z-50 transition-colors ${
+                        scrolled ? 'text-white' : 'text-blue-600'
+                    }`}
                     aria-label="menu"
                 >
                     {isOpen ? (
@@ -46,11 +69,10 @@ const Navbar = () => {
                     )}
                 </button>
 
-                {/* Updated Menu Section */}
                 <div
                     ref={menuRef}
                     className={`md:flex md:items-center md:space-x-4 absolute md:static left-0 w-full md:w-auto
-                    bg-blue-500 md:bg-transparent transition-all duration-300 ease-in-out overflow-hidden
+                    ${scrolled ? 'bg-blue-600' : 'bg-blue-500'} md:bg-transparent transition-all duration-300 ease-in-out overflow-hidden
                     ${isOpen ? 'max-h-[500px] opacity-100 top-14' : 'max-h-0 opacity-0 top-[-100%] md:max-h-full md:opacity-100 md:top-0'}
                     z-40`}
                 >
@@ -59,28 +81,33 @@ const Navbar = () => {
                             <Link
                                 to="about"
                                 onClick={closeMenu}
-                                className="py-2 px-4 text-white md:text-blue-600 hover:text-gray-400 hover:underline text-xl"
+                                className={`py-2 px-4 hover:text-gray-400 hover:underline text-xl ${
+                                    scrolled ? 'text-white md:text-white' : 'text-white md:text-blue-600'
+                                }`}
                             >
                                 About
                             </Link>
                             <Link
                                 to="projects"
                                 onClick={closeMenu}
-                                className="py-2 px-4 text-white md:text-blue-600 hover:text-gray-400 hover:underline text-xl"
+                                className={`py-2 px-4 hover:text-gray-400 hover:underline text-xl ${
+                                    scrolled ? 'text-white md:text-white' : 'text-white md:text-blue-600'
+                                }`}
                             >
                                 Projects
                             </Link>
                             <Link
                                 to="contact"
                                 onClick={closeMenu}
-                                className="py-2 px-4 text-white md:text-blue-600 hover:text-gray-400 hover:underline text-xl"
+                                className={`py-2 px-4 hover:text-gray-400 hover:underline text-xl ${
+                                    scrolled ? 'text-white md:text-white' : 'text-white md:text-blue-600'
+                                }`}
                             >
                                 Contact
                             </Link>
                         </div>
 
                         <div className="flex justify-center md:justify-center md:items-center space-x-4 mt-4 md:mt-0 border-t md:border-t-0 pt-4 md:pt-0">
-                            {/* Social links with close handlers */}
                             {[
                                 { icon: FaGithub, url: 'https://github.com/Otenevictor' },
                                 { icon: FaTwitter, url: 'https://x.com/BlessedVictoo' },
@@ -92,7 +119,9 @@ const Navbar = () => {
                                     to={social.url}
                                     target="_blank"
                                     onClick={closeMenu}
-                                    className="text-white md:text-blue-600 hover:text-gray-400"
+                                    className={`hover:text-gray-400 ${
+                                        scrolled ? 'text-white md:text-white' : 'text-white md:text-blue-600'
+                                    }`}
                                 >
                                     <social.icon className="text-2xl" />
                                 </Link>
