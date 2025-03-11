@@ -77,7 +77,7 @@ const ContactPage = () => {
             {/* Add Toaster component to render notifications */}
             <Toaster />
 
-            <section className="py-12 text-black bg-cover bg-center bg-no-repeat"
+            <section className="py-12 text-black bg-cover pt-20 bg-center bg-no-repeat"
                 style={{ backgroundImage: `url('https://res.cloudinary.com/de5sm2jjl/image/upload/v1741035181/%D7%A2%D7%A8%D7%95%D7%A5_%D7%9B%D7%A0%D7%A1%D7%AA_GIF_by_knessettv_xnjghc.gif')` }}>
                 <div className="container mx-auto flex flex-col md:flex-row items-center px-6 md:px-12">
                     {/* Left Content */}
