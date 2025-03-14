@@ -41,14 +41,14 @@ const AboutPage = () => {
         {
             title: 'Data Processing',
             issuer: 'Dominion Computer School',
-            date: 'December 2014',
+            date: 'March 2014',
             image: Cert2,
             description: 'In-depth course on Micro-soft Office suite, Corel-Draw Graphics .'
         },
         {
             title: 'Engineering',
             issuer: 'Dominion Computer School',
-            date: 'December 2015',
+            date: 'November 2015',
             image: Cert3,
             description: 'Advanced Software Installation and Hard-ware installation patterns.'
         }
