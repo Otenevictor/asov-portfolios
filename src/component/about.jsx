@@ -77,13 +77,13 @@ const AboutPage = () => {
     ];
 
     return (
-        <div className="min-h-screen bg-gray-50">
+        <div className="min-h-screen bg-gray-50 pt-10">
             {/* About Section */}
             <section className="flex flex-col md:flex-row items-center py-16 px-4 md:px-8">
                 <div className="w-full md:w-1/2 mb-8 md:mb-0 pr-0 md:pr-8 order-2 md:order-1">
                     <h1 className="text-4xl font-bold mb-6">About Me</h1>
                     <p className="text-lg text-gray-700 mb-4">
-                        I'm a passionate Frontend Developer with over 4 years of experience building
+                        I'm a passionate Frontend Developer with over 3 years of experience building
                         modern web applications. My journey in web development started with a fascination
                         for creating interactive user experiences that are both functional and aesthetically pleasing.
                     </p>
